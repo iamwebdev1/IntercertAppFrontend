@@ -1,0 +1,16 @@
+<div class="dashboard-wrapper">
+  <div class="dashboard-header">
+    <h2>Welcome Intercert Application</h2>
+    <span class="breadcrumb">Dashboard</span>
+  </div>
+
+  <div class="cards-container">
+    @for(c of cards; track c.id){
+    <div class="stat-card">
+      <div class="card-value">{{ c.count }}</div>
+      <div class="card-title">{{ c.title }}</div>
+      <a class="card-link" href="#">{{ c.link }}</a>
+    </div>
+    }
+  </div>
+</div>

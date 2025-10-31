@@ -1,0 +1,9 @@
+<!-- src/app/app.component.html -->
+
+<!-- Show AuthLayout when user is not logged in -->
+<app-auth-layout *ngIf="!isAuthenticated; else mainLayout"></app-auth-layout>
+
+<!-- Show MainLayout when user is logged in -->
+<ng-template #mainLayout>
+  <app-main-layout></app-main-layout>
+</ng-template>

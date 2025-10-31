@@ -1,0 +1,314 @@
+<div class="add-client-container">
+  <div class="header">
+    <h2>Master Data</h2>
+    <div class="breadcrumb">
+      <a routerLink="/dashboard">Master Client</a> / <span>Add Client</span>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-header">
+      <h4 style="color: blue;">Add Client</h4>
+    </div>
+
+    <form class="client-form" (ngSubmit)="onSubmit($event)">
+      <!-- Row 1 -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Transfer*</label>
+          <select>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="form-group col">
+          <label>Initial Application Type*</label>
+          <select>
+            <option>Choose...</option>
+            <option>Initial Certification</option>
+            <option>Transfer Certification</option>
+            <option>Re-Certification</option>
+            <option>Surveillance 1</option>
+            <option>Special Audit</option>
+            <option>Surveillance 2</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Client Code*</label>
+          <input type="text" value="IC202510010" />
+        </div>
+        <div class="form-group col">
+          <label>Associated User*</label>
+          <select>
+            <option>Choose an option</option>
+            <option>Fusionpact_associate</option>
+            <option>ICINDIA</option>
+            <option>ICPERU</option>
+            <option>Shalu Hans</option>
+            <option>Waseem</option>
+          </select>
+        </div>
+        <div class="form-group col">
+          <label>Company Name*</label>
+          <input type="text" placeholder="Enter company name" value="" />
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Country*</label>
+          <select
+            [(ngModel)]="client.registeredCountry"
+            name="registeredCountry"
+            (change)="onRegisteredCountryChange()"
+          >
+            <option value="">Choose...</option>
+            <option *ngFor="let c of countries" [value]="c">{{ c }}</option>
+          </select>
+        </div>
+
+        <div class="form-group col">
+          <label>State*</label>
+          <select
+            [(ngModel)]="client.registeredState"
+            name="registeredState"
+            (change)="onRegisteredStateChange()"
+          >
+            <option value="">Choose...</option>
+            <option *ngFor="let s of registeredStates" [value]="s">{{ s }}</option>
+          </select>
+        </div>
+
+        <div class="form-group col">
+          <label>Registered Address*</label>
+          <textarea
+            rows="1"
+            [(ngModel)]="client.registeredAddress"
+            name="registeredAddress"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Row 4 -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>City*</label>
+          <select
+            [(ngModel)]="client.registeredCity"
+            name="registeredCity"
+          >
+            <option value="">Choose...</option>
+            <option *ngFor="let city of registeredCities" [value]="city">
+              {{ city }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group col">
+          <label>Pin/Zip Code*</label>
+          <input type="text" name="pinCode" placeholder="Enter pin code" />
+        </div>
+
+        <div class="form-group col">
+          <label>Scope of Certification*</label>
+          <input type="text" name="scope" placeholder="" />
+        </div>
+      </div>
+
+      <!-- Checkbox -->
+      <div class="form-check">
+        <input
+          type="checkbox"
+          id="sameAddress"
+          name="sameAddress"
+          [(ngModel)]="sameAddress"
+          (change)="onSameAddressChange()"
+        />
+        <label for="sameAddress">
+          Check this box if Registered Address and Mailing Address are the same.
+        </label>
+      </div>
+
+      <!-- Mailing Address -->
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label>Mailing Address*</label>
+          <textarea
+            rows="1"
+            name="mailingAddress"
+            [(ngModel)]="client.mailingAddress"
+            [readonly]="sameAddress"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Mailing Country/State/City -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Country*</label>
+          <select
+            [(ngModel)]="client.mailingCountry"
+            name="mailingCountry"
+            (change)="onMailingCountryChange()"
+            [disabled]="sameAddress"
+          >
+            <option value="">Choose...</option>
+            <option *ngFor="let c of countries" [value]="c">{{ c }}</option>
+          </select>
+        </div>
+
+        <div class="form-group col">
+          <label>State*</label>
+          <select
+            [(ngModel)]="client.mailingState"
+            name="mailingState"
+            (change)="onMailingStateChange()"
+            [disabled]="sameAddress"
+          >
+            <option value="">Choose...</option>
+            <option *ngFor="let s of mailingStates" [value]="s">{{ s }}</option>
+          </select>
+        </div>
+
+        <div class="form-group col">
+          <label>City*</label>
+          <select
+            [(ngModel)]="client.mailingCity"
+            name="mailingCity"
+            [disabled]="sameAddress"
+          >
+            <option value="">Choose...</option>
+            <option *ngFor="let city of mailingCities" [value]="city">
+              {{ city }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- === Additional Business Details Section === -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Business Reg No.</label>
+          <input type="text" name="businessRegNo" [(ngModel)]="client.businessRegNo" />
+        </div>
+
+        <div class="form-group col">
+          <label>Tax Registration No.</label>
+          <input type="text" name="taxRegNo" [(ngModel)]="client.taxRegNo" />
+        </div>
+
+        <div class="form-group col">
+          <label>Website</label>
+          <input type="url" name="website" [(ngModel)]="client.website" />
+        </div>
+      </div>
+
+      <!-- === Contact Person Information Section === -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Contact Person Name</label>
+          <input type="text" name="contactName" [(ngModel)]="client.contactName" />
+        </div>
+
+        <div class="form-group col">
+          <label>Contact Person Email</label>
+          <input type="email" name="contactEmail" [(ngModel)]="client.contactEmail" />
+        </div>
+
+        <div class="form-group col">
+          <label>Contact Person Mobile</label>
+          <input type="tel" name="contactMobile" [(ngModel)]="client.contactMobile" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Contact Person Phone</label>
+          <input type="tel" name="contactPhone" [(ngModel)]="client.contactPhone" />
+        </div>
+
+        <div class="form-group col">
+          <label>Contact Person Designation</label>
+          <input
+            type="text"
+            name="contactDesignation"
+            [(ngModel)]="client.contactDesignation"
+          />
+        </div>
+
+        <div class="form-group col">
+          <label>Company Fax</label>
+          <input type="text" name="companyFax" [(ngModel)]="client.companyFax" />
+        </div>
+      </div>
+
+      <h4>Client Login Detail</h4>
+
+      <!-- === Client Login Details === -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Email ID*</label>
+          <input
+            type="email"
+            name="clientEmail"
+            [(ngModel)]="client.clientEmail"
+            placeholder="Enter client email"
+            required
+          />
+        </div>
+
+        <div class="form-group col">
+          <label>Username</label>
+          <input
+            type="text"
+            name="clientUsername"
+            [(ngModel)]="client.clientUsername"
+            placeholder="Enter username"
+          />
+        </div>
+
+        <div class="form-group col">
+          <label>Password</label>
+          <input
+            type="password"
+            name="clientPassword"
+            [(ngModel)]="client.clientPassword"
+            placeholder="Enter password"
+          />
+        </div>
+      </div>
+
+      <!-- === Signature Upload === -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Signature</label>
+          <input
+            type="file"
+            name="signature"
+            accept="image/*"
+            (change)="onSignatureSelected($event)"
+          />
+
+          <div *ngIf="signaturePreview" class="signature-preview">
+            <p>Preview:</p>
+            <img
+              [src]="signaturePreview"
+              alt="Signature Preview"
+              style="max-width: 200px; max-height: 100px; border: 1px solid #ccc; margin-top: 5px;"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="form-footer">
+        <button type="submit" class="save-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="login-wrapper">
+    <div class="login-container">
+
+        <!-- Left Side -->
+        <div class="login-left">
+            <h2 style="color: blue;">INTERCERT</h2>
+            <img src="https://media.istockphoto.com/id/1413922045/vector/programming-at-home.jpg?s=612x612&w=0&k=20&c=_5UhZu0-etj-lWZorNUAkF_PEqXfHpuf44dCeWeCOvc="
+                alt="illustration" class="login-illustration">
+        </div>
+
+        <!-- Right Side -->
+        <div class="login-right">
+            <h1>Hello,<br>Welcome Back</h1>
+            <p class="lead">New user? <a style="color: blue; text-decoration: none;" routerLink="/signup">SignUp Here</a></p>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <input type="text" placeholder="Email or Username" formControlName="username" class="input" />
+                <div class="error" *ngIf="username?.touched && username?.errors?.['required']">
+                    Email is required
+                </div>
+                <div class="error" *ngIf="username?.touched && username?.errors?.['email']">
+                    Enter a valid email
+                </div>
+                <div class="error" *ngIf="username?.touched && username?.errors?.['intercertEmail']">
+                    Email must end with @intercert.com
+                </div>
+
+                <input type="password" placeholder="Password" formControlName="password" class="input" />
+                <div class="error" *ngIf="password?.touched && password?.errors?.['required']">
+                    Password is required
+                </div>
+                <div class="error" *ngIf="password?.touched && password?.errors?.['minlength']">
+                    Password must be at least 8 characters
+                </div>
+
+                <div class="row">
+                    <label><input type="checkbox" formControlName="remember" /> Remember me</label>
+                    <a routerLink="/forgot-password" class="forgot">Forgot Password?</a>
+                </div>
+
+                <button class="btn" type="submit" [disabled]="loginForm.invalid">LOGIN NOW</button>
+
+                <div class="divider">or login with</div>
+
+                <div class="socials">
+                    <button type="button" class="social google"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png"
+                            alt="Google">
+                        Google</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,633 @@
+<div class="add-client-container">
+  <div class="header">
+    <h2>Client Information Temporary Form</h2>
+    <div class="breadcrumb">
+      <a routerLink="/dashboard">Master Client</a> / <span>Client Information</span>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="client-form">
+
+
+      <!-- Row 1 -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Certification Identity Number*</label>
+          <input type="text" formControlName="companyName" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>Certificate Number</label>
+          <input type="text" formControlName="address" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>Contract Number</label>
+          <input type="text" formControlName="address" placeholder="" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Certification Status</label>
+          <select>
+            <option>Active</option>
+            <option>Inactive</option>
+          </select>
+        </div>
+        <div class="form-group col">
+          <label>Accreditation Status</label>
+          <select>
+            <option>Active</option>
+            <option>Inactive</option>
+          </select>
+        </div>
+        <div class="form-group col">
+          <label>Certification Type</label>
+          <input type="text" formControlName="address" placeholder="" />
+        </div>
+
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Certification Scope</label>
+          <input type="text" formControlName="address" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>Certification Original Issue Date</label>
+          <input type="date" formControlName="mrmDate" />
+        </div>
+        <div class="form-group col">
+          <label>Certification Issue Date</label>
+          <input type="date" formControlName="mrmDate" />
+        </div>
+        <div class="form-group col">
+          <label>Certification Expiry Date</label>
+          <input type="date" formControlName="mrmDate" />
+        </div>
+      </div>
+      <h4>Certified Entity</h4>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Name*</label>
+          <input type="text" formControlName="companyName" placeholder="Enter name" />
+        </div>
+        <div class="form-group col">
+          <label>Trading Name</label>
+          <input type="text" formControlName="companyName" placeholder="" />
+        </div>
+
+        <div class="form-group col">
+          <label>English Name</label>
+          <input type="text" formControlName="companyName" placeholder="" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Email*</label>
+          <input type="email" formControlName="email" placeholder="Enter email" />
+        </div>
+        <div class="form-group col">
+          <label>Key Contact</label>
+          <input type="text" formControlName="companyName" placeholder="Enter key contact name" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Phone</label>
+          <input type="number" formControlName="contactNumber" placeholder="Enter phone number" />
+        </div>
+        <div class="form-group col">
+          <label>Unique ID*</label>
+          <input type="text" formControlName="companyName" placeholder="Enter unique id" />
+        </div>
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Street</label>
+          <textarea type="text" formControlName="companyName" placeholder=""></textarea>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label>City</label>
+          <input type="text" formControlName="contactNumber" placeholder="Enter city name" />
+        </div>
+        <div class="form-group col">
+          <label>State</label>
+          <input type="text" formControlName="companyName" placeholder="Enter state name" />
+        </div>
+        <div class="form-group col">
+          <label>Country</label>
+          <input type="text" formControlName="contactNumber" placeholder="Enter country name" />
+        </div>
+
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Zip Code</label>
+          <input type="number" formControlName="contactNumber" placeholder="Enter zip code" />
+        </div>
+        <div class="form-group col">
+          <label>Website</label>
+          <input type="email" formControlName="registrationNumber" placeholder="" />
+        </div>
+      </div>
+
+
+
+      <h4>Accreditation Body</h4>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Name</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>Acronym</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Scheme Name</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>Standard Name</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>IC Code</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Audit Men-days</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>Multi Site Status</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>Lead Auditor</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Auditor</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>Associate</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>Revision Date</label>
+          <input type="date" formControlName="registrationNumber" placeholder="" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Revision Number</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>Revision Purpose</label>
+          <input type="text" formControlName="registrationNumber" placeholder="" />
+        </div>
+
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label>SA1 Date</label>
+          <input type="date" formControlName="registrationNumber" placeholder="" />
+        </div>
+        <div class="form-group col">
+          <label>SA1 Status</label>
+          <select>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="form-group col">
+          <label>SA1 Mandays</label>
+          <input type="number" formControlName="registrationNumber" placeholder="" />
+        </div>
+      </div>
+
+
+
+      <!-- Row 3 -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Contact Person</label>
+          <input type="text" formControlName="contactPerson" placeholder="Enter name" />
+        </div>
+        <div class="form-group col">
+          <label>Designation</label>
+          <input type="text" formControlName="designation" placeholder="e.g. CEO" />
+        </div>
+      </div>
+
+      <!-- Row 4 -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Email ID*</label>
+          <input type="email" formControlName="email" placeholder="Enter email" />
+        </div>
+        <div class="form-group col">
+          <label>Contact Number</label>
+          <input type="text" formControlName="contactNumber" placeholder="Enter phone number" />
+        </div>
+      </div>
+
+      <!-- Scope -->
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label>Scope of Certification for ISMS</label>
+          <textarea rows="2" formControlName="scopeOfCertification"></textarea>
+        </div>
+      </div>
+
+      <!-- SOA Version -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>SOA Version ISMS (if Applicable)</label>
+          <input type="text" formControlName="soaVersion" placeholder="Enter version" />
+        </div>
+      </div>
+
+      <!-- Business Activities -->
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label>Business Activities / Processes</label>
+          <textarea rows="2" formControlName="businessActivities"></textarea>
+        </div>
+      </div>
+
+      <!-- Certification Standard -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Applied Certification Standard</label>
+          <span class="badge">ISO/IEC 27001:2022</span>
+        </div>
+      </div>
+
+      <!-- Accreditation Desired -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Accreditation Desired</label>
+          <div class="radio-group">
+            <label><input type="radio" value="SCC" formControlName="accreditationDesired" /> SCC</label>
+            <label><input type="radio" value="UAF" formControlName="accreditationDesired" /> UAF</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Application Type -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Application Type</label>
+          <span><strong>Surveillance-1 Certification</strong></span>
+        </div>
+      </div>
+
+      <!-- Site Type -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Site Type</label>
+          <div class="radio-group">
+            <label><input type="radio" value="Single Site" formControlName="siteType" /> Single Site</label>
+            <label><input type="radio" value="Multiple Site" formControlName="siteType" /> Multiple Site</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employees -->
+      <h4>Breakup of No. of Employees</h4>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Permanent</label>
+          <input type="number" formControlName="permanentEmployees" />
+        </div>
+        <div class="form-group col">
+          <label>Part Time</label>
+          <input type="number" formControlName="partTimeEmployees" />
+        </div>
+        <div class="form-group col">
+          <label>Contractual</label>
+          <input type="number" formControlName="contractualEmployees" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Temporary</label>
+          <input type="number" formControlName="temporaryEmployees" />
+        </div>
+        <div class="form-group col">
+          <label>Working Remotely</label>
+          <input type="number" formControlName="workingRemotely" />
+        </div>
+        <div class="form-group col">
+          <label>Total Employees</label>
+          <input type="number" formControlName="totalEmployees" />
+        </div>
+      </div>
+
+      <!-- Shifts -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>No. of Shifts</label>
+          <input type="number" formControlName="noOfShifts" />
+        </div>
+        <div class="form-group col">
+          <label>Employees Per Shift</label>
+          <input type="number" formControlName="employeesPerShift" />
+        </div>
+      </div>
+
+      <!-- Exclusions & Outsourced -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Exclusions (ISMS)</label>
+          <input type="text" formControlName="exclusions" />
+        </div>
+        <div class="form-group col">
+          <label>Outsourced Processes</label>
+          <input type="text" formControlName="outsourcedProcesses" />
+        </div>
+      </div>
+
+      <!-- Functional Unit -->
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label>Functional Unit / Department</label>
+          <input type="text" formControlName="functionalUnit" />
+        </div>
+      </div>
+
+      <!-- Regulatory Requirements -->
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label>Applicable Statutory & Regulatory Requirements</label>
+          <textarea rows="2" formControlName="regulatoryRequirements"></textarea>
+        </div>
+      </div>
+
+      <!-- Dates -->
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Management System Establishment / Revision Date</label>
+          <input type="date" formControlName="msEstablishmentDate" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label>MRM Date</label>
+          <input type="date" formControlName="mrmDate" />
+        </div>
+        <div class="form-group col">
+          <label>Internal Audit Date</label>
+          <input type="date" formControlName="internalAuditDate" />
+        </div>
+      </div>
+
+      <!-- Attach Documents -->
+      <div class="form-row">
+        <div class="form-group col-12">
+          <label>Attach Documents</label>
+          <input type="file" formControlName="attachedDocuments" (change)="onFileSelected($event)" multiple
+            accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg" />
+          <!-- ✅ fixed: removed optional chaining -->
+          <div class="attached-files" *ngIf="selectedFiles.length > 0">
+            <ul>
+              <li *ngFor="let file of selectedFiles">{{ file.name }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Persons Performing Certain Identical Activities -->
+      <div class="section-card">
+        <h5 class="section-title">Persons Performing Certain Identical Activities</h5>
+
+        <table style="font-size: small;" class="activity-table">
+          <thead>
+            <tr>
+              <th style="width: 5%;">S. NO</th>
+              <th>Activity</th>
+              <th>Number of Employees</th>
+              <th style="width: 35%;">Risk of Activity (With Respect to ISMS)</th>
+              <th style="width: 10%;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let activity of activities; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>
+                <input type="text" [(ngModel)]="activity.activity" placeholder="Enter Activity"
+                  name="activity{{ i }}" />
+              </td>
+              <td>
+                <input type="number" [(ngModel)]="activity.employees" placeholder="e.g., 5" name="employees{{ i }}" />
+              </td>
+              <td>
+                <input type="text" [(ngModel)]="activity.risk" placeholder="Enter Risk" name="risk{{ i }}" />
+              </td>
+              <td class="text-center">
+                <button type="button" class="save-btn" (click)="saveActivity(i)">Save</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <div class="add-more">
+          <button type="button" class="add-btn" (click)="addActivity()">Add More</button>
+        </div>
+      </div>
+
+      <!-- If An Organization Is Applying For ISMS -->
+      <div class="section-card">
+        <h3 class="section-title">If An Organization Is Applying For Information Security Management System</h3>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Date of S.O.A ISMS</label>
+            <input type="date" formControlName="soaDate" />
+          </div>
+          <div class="form-group col">
+            <label>Document Number ISMS</label>
+            <input type="text" formControlName="documentNumberIsms" placeholder="Enter Document Number" />
+          </div>
+          <div class="form-group col">
+            <label>Revision Number ISMS</label>
+            <input type="text" formControlName="revisionNumberIsms" placeholder="Enter Revision Number" />
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- ISO 27001 Certification Section -->
+      <div class="section-card">
+        <div class="section-header">
+          <h3>ISO 27001 Certification</h3>
+        </div>
+        <!-- <h3 class="section-title">ISO 27001 Certification</h3> -->
+
+        <h4 class="sub-title">
+          SELECTION OF CORRECTIVE FACTORS ON THE BASIS OF BUSINESS ACTIVITY & ORGANIZATION
+        </h4>
+
+        <table style="font-size: small;" class="correction-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th style="width: 120px;">Std. Value</th>
+              <th style="width: 180px;">Input</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- 2.1 Business & Regulatory Requirements -->
+            <tr class="section-header">
+              <td colspan="3"><strong>2.1 Business & Regulatory Requirements</strong></td>
+            </tr>
+
+            <tr *ngFor="let item of businessRequirements; let i = index">
+              <td>{{ item.description }}</td>
+              <td class="text-center">{{ item.stdValue }}</td>
+              <td><input type="number" [(ngModel)]="item.input" name="brInput{{ i }}" placeholder="Enter value" /></td>
+            </tr>
+
+
+            <!-- 2.2 Processes and Tasks -->
+            <tr class="section-header">
+              <td colspan="3"><strong>2.2 Processes and Tasks of an Organization with an Established ISMS</strong></td>
+            </tr>
+
+            <tr *ngFor="let process of processTasks; let j = index">
+              <td>{{ process.description }}</td>
+              <td class="text-center">{{ process.stdValue }}</td>
+              <td>
+                <input type="number" [(ngModel)]="process.input" placeholder="Enter value" name="ptInput{{ j }}" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="section-card">
+        <div class="section-header">
+          <h3>Application Review</h3>
+        </div>
+
+        <div class="review-grid">
+          <!-- Row 1 -->
+          <div class="form-group">
+            <label>All requirements are available</label>
+            <select formControlName="allRequirements">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Any impartiality related issue</label>
+            <select formControlName="impartialityIssue">
+              <option>No</option>
+              <option>Yes</option>
+            </select>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="form-group">
+            <label>Other points influencing the certification activity are considered like language & safety
+              conditions</label>
+            <select formControlName="otherPointsInfluencing">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Effective Manpower</label>
+            <input type="number" formControlName="effectiveManpower" placeholder="Enter number" />
+          </div>
+
+          <!-- Row 3 -->
+          <div class="form-group">
+            <label>In Cases of Surveillance, General Terms Conditions are available</label>
+            <select formControlName="generalTermsAvailable">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Applicable IC Code/Technical Area</label>
+            <input type="text" formControlName="icCodeTechnicalArea" placeholder="Enter IC Code" />
+          </div>
+
+          <!-- Row 4 -->
+          <div class="form-group">
+            <label>Competency for client scope available</label>
+            <select formControlName="competencyAvailable">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Application Review Result</label>
+            <select formControlName="reviewResult">
+              <option>Approve</option>
+              <option>Reject</option>
+            </select>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="form-group">
+            <label>Prev Certification</label>
+            <select formControlName="prevCertification">
+              <option>No</option>
+              <option>Yes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" formControlName="reviewDate" />
+          </div>
+
+          <!-- Row 6 -->
+          <div class="form-group full-width">
+            <label>Application Reviewer Name</label>
+            <select formControlName="reviewerName">
+              <option value="Kailash Verma">Kailash Verma</option>
+              <option value="Priya Sharma">Priya Sharma</option>
+              <option value="Rahul Singh">Rahul Singh</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="form-footer">
+        <button type="submit" class="save-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

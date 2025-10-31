@@ -1,0 +1,45 @@
+<div class="main-layout">
+  <header class="topbar">
+    <button class="menu-btn" (click)="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </button>
+     <div class="logo">
+      <img src="https://intercert.uk/wp-content/uploads/revslider/ICC-06/logo.png" alt="Intercert Logo" />
+    </div>
+    <button class="logout-btn" (click)="onLogout()" class="logout-btn">
+      Logout
+    </button>
+
+   
+  </header>
+
+  <div class="content-area" [ngClass]="{
+      'sidebar-collapsed': isSidebarCollapsed,
+      'sidebar-open': isSidebarCollapsed
+    }">
+
+    <aside class="sidebar" [ngClass]="{ collapsed: isSidebarCollapsed, open: isSidebarCollapsed }">
+      <div class="logo">
+        <img src="https://intercert.uk/wp-content/uploads/revslider/ICC-06/logo.png" alt="Intercert Logo" />
+      </div>
+
+      <nav>
+        <ul>
+          <li routerLink="/dashboard" routerLinkActive="active" (click)="closeSidebar()">
+            <i class="fas fa-home"></i> <span>Dashboard</span>
+          </li>
+          <li routerLink="/add-client" routerLinkActive="active" (click)="closeSidebar()">
+            <i class="fas fa-user-plus"></i> <span>Add Client</span>
+          </li>
+          <li routerLink="/client-info-form" routerLinkActive="active" (click)="closeSidebar()">
+            <i class="fas fa-file-alt"></i> <span>CIF</span>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="dashboard-wrapper">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
