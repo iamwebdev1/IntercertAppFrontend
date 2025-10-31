@@ -10,7 +10,6 @@ import { MainLayout } from './layouts/main-layout/main-layout';
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
     AuthLayout,
     MainLayout
   ],

@@ -11,7 +11,8 @@
         <!-- Right Side -->
         <div class="login-right">
             <h1>Hello,<br>Welcome Back</h1>
-            <p class="lead">New user? <a style="color: blue; text-decoration: none;" routerLink="/signup">SignUp Here</a></p>
+            <p class="lead">New user? <a style="color: blue; text-decoration: none;" routerLink="/signup">SignUp
+                    Here</a></p>
 
             <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
                 <input type="text" placeholder="Email or Username" formControlName="username" class="input" />
@@ -42,12 +43,7 @@
 
                 <div class="divider">or login with</div>
 
-                <div class="socials">
-                    <button type="button" class="social google"><img
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png"
-                            alt="Google">
-                        Google</button>
-                </div>
+                <div id="googleBtn"></div>
             </form>
         </div>
 
