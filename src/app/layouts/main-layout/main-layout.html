@@ -3,14 +3,17 @@
     <button class="menu-btn" (click)="toggleSidebar()">
       <i class="fas fa-bars"></i>
     </button>
-     <div class="logo">
+    <div class="logo">
       <img src="https://intercert.uk/wp-content/uploads/revslider/ICC-06/logo.png" alt="Intercert Logo" />
     </div>
+    <li *ngIf="isAdmin">
+      <a class="logout-btn" routerLink="/create-user">Create User</a>
+    </li>
     <button class="logout-btn" (click)="onLogout()" class="logout-btn">
       Logout
     </button>
 
-   
+
   </header>
 
   <div class="content-area" [ngClass]="{

@@ -38,7 +38,10 @@ export class Signup implements OnInit {
     if (this.signupForm.invalid) return;
 
     this.loading = true;
-    const userData = this.signupForm.value;
+      const userData = {
+      ...this.signupForm.value,  
+      userType: 'admin' 
+    };
 
     this.auth.signup(userData).subscribe({
       next: (res) => {

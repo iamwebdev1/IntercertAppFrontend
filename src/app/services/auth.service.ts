@@ -17,10 +17,33 @@ export class AuthService {
   ) { }
 
 
-  signup(userData: { name: string; email: string; password: string }): Observable<any> {
+  signup(userData: { name: string; email: string; password: string}): Observable<any> {
     return this.http.post(`${this.baseUrl}/users/signup`, userData);
   }
 
+  getUserRole(): string | null {
+  const token = localStorage.getItem('token');
+  if (!token) return null;
+
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload.role || null;
+  } catch (error) {
+    console.error("Invalid JWT format:", error);
+    return null;
+  }
+}
+
+
+  isAdmin(): boolean {
+    return this.getUserRole() === 'admin';
+  }
+
+  createUser(data: { name: string; email: string; password: string }): Observable<any> {
+    return this.http.post(`${this.baseUrl}/users/create-user`, data, {
+      headers: { Authorization: `Bearer ${this.getToken()}` }
+    });
+  }
 
   login(credentials: { email: string; password: string }): Observable<any> {
     return this.http.post(`${this.baseUrl}/auth/login`, credentials).pipe(
@@ -43,21 +66,28 @@ export class AuthService {
     );
   }
 
-  logout() {
-    return this.http.post(`${this.baseUrl}/auth/logout`, {}, { withCredentials: true })
-      .pipe(
-        tap(() => {
-          // Clear any client-side stored tokens/state
-          localStorage.removeItem('access_token');
-          // update auth state (if using BehaviorSubject)
-        }),
-      );
+
+  logout(): Observable<any> {
+    return this.http.post(`${this.baseUrl}/auth/logout`, {}, { withCredentials: true }).pipe(
+      tap({
+        next: () => {
+          this.clearToken();
+        },
+        error: () => {
+          this.clearToken();
+        }
+      })
+    );
   }
 
-  // helper to do client-only logout (if you store tokens in localStorage)
   clientOnlyLogout() {
-    localStorage.removeItem('access_token');
+    this.clearToken();
     this.router.navigate(['/login']);
+  }
+
+
+  private clearToken() {
+    localStorage.removeItem('token');
   }
 
 

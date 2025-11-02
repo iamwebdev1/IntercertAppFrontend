@@ -12,11 +12,13 @@ import { AuthService } from '../../services/auth.service';
 export class MainLayout {
 
 
-
   isSidebarCollapsed = false;
+  isAdmin = false;
 
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { 
+    this.isAdmin = this.authService.isAdmin();
+  }
 
   toggleSidebar() {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
@@ -27,20 +29,23 @@ export class MainLayout {
       this.isSidebarCollapsed = false;
     }
   }
-  onLogout() {
-    console.log("Clicked logout");
-    
-    this.authService.logout().subscribe({
-      next: () => {
-        // Redirect to login page after successful logout
-        this.router.navigate(['/login']);
-      },
-      error: (err) => {
-        // Even if server logout fails, clear local client state
-        console.error('Logout error', err);
-        this.authService.clientOnlyLogout();
-      }
-    });
-  }
+ onLogout() {
+  console.log('Clicked logout');
+
+  this.authService.logout().subscribe({
+    next: () => {
+      this.router.navigate(['/login']);
+    },
+    error: (err) => {
+      console.error('Logout error', err);
+      this.authService.clientOnlyLogout();
+    },
+    complete: () => {
+      localStorage.removeItem('token'); // final safety
+      this.router.navigate(['/login']);
+    }
+  });
+}
+
 }
 

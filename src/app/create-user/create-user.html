@@ -1,0 +1,10 @@
+<!-- create-user.html -->
+<div class="create-user">
+  <h2>Create New User</h2>
+  <form [formGroup]="createUserForm" (ngSubmit)="onCreateUser()">
+    <input type="text" placeholder="Name" formControlName="name" />
+    <input type="email" placeholder="Email" formControlName="email" />
+    <input type="password" placeholder="Password" formControlName="password" />
+    <button type="submit" [disabled]="createUserForm.invalid">Create</button>
+  </form>
+</div>
