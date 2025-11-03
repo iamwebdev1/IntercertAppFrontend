@@ -1,24 +1,32 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-main-layout',
+  standalone : true,
   imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css',
 })
-export class MainLayout {
+export class MainLayout implements OnInit {
 
 
   isSidebarCollapsed = false;
-  isAdmin = false;
+  isAdminUser = false;
 
 
   constructor(private authService: AuthService, private router: Router) { 
-    this.isAdmin = this.authService.isAdmin();
+    
   }
+
+ ngOnInit() {
+  const role = this.authService.getUserRole(); 
+  console.log('User Role from AuthService:', role);
+  this.isAdminUser = role === 'admin';
+}
+
 
   toggleSidebar() {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;

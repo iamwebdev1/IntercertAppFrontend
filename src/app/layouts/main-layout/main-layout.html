@@ -6,9 +6,6 @@
     <div class="logo">
       <img src="https://intercert.uk/wp-content/uploads/revslider/ICC-06/logo.png" alt="Intercert Logo" />
     </div>
-    <li *ngIf="isAdmin">
-      <a class="logout-btn" routerLink="/create-user">Create User</a>
-    </li>
     <button class="logout-btn" (click)="onLogout()" class="logout-btn">
       Logout
     </button>
@@ -37,6 +34,10 @@
           <li routerLink="/client-info-form" routerLinkActive="active" (click)="closeSidebar()">
             <i class="fas fa-file-alt"></i> <span>CIF</span>
           </li>
+          <li *ngIf="isAdminUser" routerLink="/create-user" routerLinkActive="active" (click)="closeSidebar()">
+            <i class="fas fa-user-shield"></i> <span>Create User</span>
+          </li>
+
         </ul>
       </nav>
     </aside>

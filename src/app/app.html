@@ -1,9 +1,5 @@
-<!-- src/app/app.component.html -->
+<!-- Show main layout only when authenticated -->
+<app-main-layout *ngIf="isAuthenticated"></app-main-layout>
 
-<!-- Show AuthLayout when user is not logged in -->
-<app-auth-layout *ngIf="!isAuthenticated; else mainLayout"></app-auth-layout>
-
-<!-- Show MainLayout when user is logged in -->
-<ng-template #mainLayout>
-  <app-main-layout></app-main-layout>
-</ng-template>
+<!-- Otherwise show public routes -->
+<router-outlet *ngIf="!isAuthenticated"></router-outlet>

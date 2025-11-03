@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { RouterOutlet } from '@angular/router';
-import { AuthLayout } from './layouts/auth-layout/auth-layout';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { MainLayout } from './layouts/main-layout/main-layout';
 
 @Component({
@@ -10,22 +9,26 @@ import { MainLayout } from './layouts/main-layout/main-layout';
   standalone: true,
   imports: [
     CommonModule,
-    AuthLayout,
+    RouterOutlet,
     MainLayout
   ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'] 
 })
 export class App {
   isAuthenticated = false;
 
   constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
+    // ✅ Only listen to NavigationEnd events
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
         const token = localStorage.getItem('token');
+        const currentUrl = event.urlAfterRedirects;
+
+        // ✅ Show layout only when logged in
         this.isAuthenticated =
-          !!token && !['/login', '/signup'].includes(event.urlAfterRedirects);
-      }
-    });
+          !!token && !['/login', '/signup'].includes(currentUrl);
+      });
   }
 }

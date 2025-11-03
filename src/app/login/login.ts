@@ -99,7 +99,6 @@ export class Login implements OnInit {
 
     this.auth.login(formData).subscribe({
       next: (res) => {
-        localStorage.setItem('token', res.token);
         alert('Login successful!');
         this.loading = false;
         this.router.navigate(['/dashboard']);

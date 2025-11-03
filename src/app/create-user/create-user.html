@@ -1,10 +1,54 @@
-<!-- create-user.html -->
-<div class="create-user">
-  <h2>Create New User</h2>
-  <form [formGroup]="createUserForm" (ngSubmit)="onCreateUser()">
-    <input type="text" placeholder="Name" formControlName="name" />
-    <input type="email" placeholder="Email" formControlName="email" />
-    <input type="password" placeholder="Password" formControlName="password" />
-    <button type="submit" [disabled]="createUserForm.invalid">Create</button>
-  </form>
+<div class="signup-wrapper">
+  <div class="signup-container">
+
+    <!-- Left Side -->
+    <div class="signup-left">
+      <h2 style="color: blue;">INTERCERT</h2>
+      <img
+        src="https://media.istockphoto.com/id/1413922045/vector/programming-at-home.jpg?s=612x612&w=0&k=20&c=_5UhZu0-etj-lWZorNUAkF_PEqXfHpuf44dCeWeCOvc="
+        alt="illustration" class="signup-illustration">
+    </div>
+
+    <!-- Right Side -->
+    <div class="signup-right">
+      <h1>Create User Account</h1>
+
+      <form [formGroup]="signupForm" (ngSubmit)="onUserCreate()">
+
+        <input type="text" placeholder="User Full Name" formControlName="name" class="input" />
+        <div class="error" *ngIf="name?.touched && name?.errors?.['required']">
+          Name is required
+        </div>
+
+        <!-- <label>User Type</label>
+        <select>
+          <option >Associate</option>
+          <option >Client</option>
+          <option >Auditors</option>
+          <option >Other User</option>
+        </select> -->
+
+        <input type="email" placeholder="Email" formControlName="email" class="input" />
+        <div class="error" *ngIf="email?.touched && email?.errors?.['required']">
+          Email is required
+        </div>
+        <div class="error" *ngIf="email?.touched && email?.errors?.['intercertEmail']">
+          Email must end with @intercert.com
+        </div>
+        <div class="error" *ngIf="email?.touched && email?.errors?.['email']">
+          Enter a valid email
+        </div>
+
+        <input type="password" placeholder="Password" formControlName="password" class="input" />
+        <div class="error" *ngIf="password?.touched && password?.errors?.['required']">
+          Password is required
+        </div>
+        <div class="error" *ngIf="password?.touched && password?.errors?.['minlength']">
+          Password must be at least 8 characters
+        </div>
+
+        <button class="btn" type="submit" [disabled]="signupForm.invalid">CREATE ACCOUNT</button>
+      </form>
+    </div>
+  </div>
 </div>
